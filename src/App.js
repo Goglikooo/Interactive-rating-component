@@ -1,25 +1,19 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Thankyou from './components/Thankyou.js';
+import { useState } from 'react';
+import FirstCard from './components/FirstCard.js';
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  
+const[showThankYouPage, setShowThankYouPage] = useState(false);
+const [rating, setRating] = useState(null);
+
+return showThankYouPage ? <Thankyou rating={rating} /> : <FirstCard rating={rating} setRating={setRating} setShowThankYouPage={setShowThankYouPage} />
+    
 }
 
 export default App;
+
+
